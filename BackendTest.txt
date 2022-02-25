@@ -1,0 +1,28 @@
+Test Server Backend Menggunakan Browser
+codepen.io
+
+
+HTML:
+<button id="get">GET API</button>
+<button id="post">POST API</button>
+
+
+JS:
+const getButton = document.getElementById("get");
+const postButton = document.getElementById("post");
+
+getButton.addEventListener('click', () => {
+  fetch('http://localhost:4000/v1/customer/products')
+  .then(res => res.json())
+  .then(resJSON => console.log(resJSON))
+  .catch(err => console.log(err))
+})
+
+postButton.addEventListener('click', () => {
+  fetch('http://localhost:4000/v1/customer/product', {
+    method: 'POST' 
+  })
+  .then(res => res.json())
+  .then(resJSON => console.log(resJSON))
+  .catch(err => console.log(err))
+})
